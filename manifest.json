@@ -1,0 +1,45 @@
+{
+    "name": "Whatsapp Scraper",
+    "author": "Eagle19243",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "minimum_chrome_version": "49",
+    "incognito": "not_allowed",
+    "description": "Whatsapp Scraper",
+    "content_security_policy": "script-src 'self' https://apis.google.com 'unsafe-eval'; object-src 'self'",
+    "background": {
+        //   "scripts": ["public/background.min.js"],
+        "scripts": ["js/background.js"],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["vendor/jquery.min.js", "js/content.js"],
+            "run_at": "document_end",
+            "all_frames": true,
+            "match_about_blank": true
+        }
+    ],
+    "browser_action" : {
+        "default_icon": "img/icon_disabled.png",
+        "default_title": "Whatsapp Scraper"
+    },
+    "icons" : {
+        "16" : "img/icon_disabled.png",
+        "22" : "img/icon_disabled.png",
+        "32" : "img/icon_disabled.png",
+        "48" : "img/icon_disabled.png",
+        "128": "img/icon_disabled.png"
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "http://*/*",
+        "https://*/*",
+        "<all_urls>"
+    ],
+    "web_accessible_resources": [
+        "img/icon.png"
+    ]
+}
